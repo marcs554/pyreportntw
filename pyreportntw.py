@@ -116,7 +116,8 @@ class pyreportntw:
         try:
             ip_local = ni.ifaddresses(ni.interfaces()[1])[ni.AF_INET][0]["addr"]
             
-            if os.system(f"ping -c 1 {destino}") is not 0: writeCSV()
+            if os.system(f"ping -c 1 {destino}") != 0: 
+                writeCSV()
                 
         except Exception:
             ip_local = "0.0.0.0"
